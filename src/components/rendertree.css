@@ -1,0 +1,15 @@
+svg{
+  height: auto;
+  width: 100%;
+  padding: 20px;
+  overflow:visible;
+  background-color: #FAF9F9;
+}
+
+.tree-container{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  float: left;
+  line-height: 0;
+}

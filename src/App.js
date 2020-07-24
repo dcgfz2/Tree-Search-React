@@ -1,6 +1,8 @@
 import React from 'react';
 import SearchTree from './lib/searchtree';
 import RenderTree from './components/rendertree';
+import ControlPanel from './components/controlpanel';
+
 import './App.css';
 
 class App extends React.Component {
@@ -19,6 +21,7 @@ class App extends React.Component {
     return (
       <div className="main-container">
          <RenderTree data={this.tree} height={this.tree.maxDepth(this.tree.root)}/>
+         <ControlPanel data={this.tree} />
       </div>
     );
   }

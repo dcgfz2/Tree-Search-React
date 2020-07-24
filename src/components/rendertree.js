@@ -1,8 +1,10 @@
 import React from 'react';
 
+import "./rendertree.css";
+
 const RenderTree = ({data,height}) => (
   <div className="tree-container">
-    <svg>
+    <svg >
 
       {//Render relational lines
         data.nodeLevelView(0, [],data.root).map((nodes,level,levelArray) =>
@@ -31,13 +33,13 @@ const RenderTree = ({data,height}) => (
 
 const RenderNode = ({x,y,value}) => (
   <g>
-    <circle cx={x} cy={y} r="15" stroke="black" fill="white"/>
-    <text x={x} y={y} text-anchor="middle" fill="green"> {value} </text>
+    <circle cx={x} cy={y} r="15" stroke="#555B6E" fill="#FAF9F9"/>
+    <text x={x} y={y} textAnchor="middle" stoke="555B6E" fill="#FFD6BA"> {value} </text>
   </g>
 );
 
 const RenderRelation = ({parx,pary,x,y}) => (
-  <line x1={parx} y1={pary} x2={x} y2={y} stroke="black" />
+  <line x1={parx} y1={pary} x2={x} y2={y} stroke="#555B6E" />
 );
 
 export default RenderTree;

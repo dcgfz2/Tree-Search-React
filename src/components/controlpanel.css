@@ -1,0 +1,10 @@
+.controls-container{
+  width: 28%;
+  height: 100%;
+  display: flex;
+  float:right;
+  margin-left: auto;
+  margin-right: 0;
+  align-items: center;
+  background-color: #89B0AE;
+}
