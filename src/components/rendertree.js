@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./rendertree.css";
 
-const RenderTree = ({data,height}) => (
+const RenderTree = ({data,height,onClick}) => (
   <div className="tree-container">
     <svg >
 
@@ -23,7 +23,7 @@ const RenderTree = ({data,height}) => (
       {//Render nodes on a per level basis
         data.nodeLevelView(0, [],data.root).map((nodes,level) =>
           nodes.map((node,offset) => {
-            return <RenderNode x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} value={node.value} />
+            return <RenderNode x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} node={node} e={onClick}/>
           })
         )
       }
@@ -31,10 +31,10 @@ const RenderTree = ({data,height}) => (
   </div>
 );
 
-const RenderNode = ({x,y,value}) => (
+const RenderNode = ({x,y,node,e}) => (
   <g>
-    <circle cx={x} cy={y} r="15" stroke="#555B6E" fill="#FAF9F9"/>
-    <text x={x} y={y} textAnchor="middle" stoke="555B6E" fill="#FFD6BA"> {value} </text>
+    <circle cx={x} cy={y} r="15" stroke="#555B6E" fill="#FAF9F9" onClick={function(){e(node)}}/>
+    <text x={x} y={y} textAnchor="middle" stoke="555B6E" fill="#FFD6BA"> {node.value} </text>
   </g>
 );
 
