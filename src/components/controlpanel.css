@@ -5,6 +5,27 @@
   float:right;
   margin-left: auto;
   margin-right: 0;
-  align-items: center;
   background-color: #89B0AE;
+  text-align: center;
+  display: inline-block;
+}
+
+.selected-node > svg{
+  width: 0;
+  height: 0;
+  background-color: #89B0AE;
+}
+.selected-node{
+  text-align: center;
+  display: inline-block;
+}
+
+.button{
+  border-radius: 25%;
+  background-color: #FFD6BA;
+}
+
+.option-container > input{
+  box-sizing: border-box;
+  width: 80%;
 }

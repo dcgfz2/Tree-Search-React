@@ -34,7 +34,7 @@ const RenderTree = ({data,height,onClick}) => (
 const RenderNode = ({x,y,node,e}) => (
   <g>
     <circle cx={x} cy={y} r="15" stroke="#555B6E" fill="#FAF9F9" onClick={function(){e(node)}}/>
-    <text x={x} y={y} textAnchor="middle" stoke="555B6E" fill="#FFD6BA"> {node.value} </text>
+    <text x={x} y={y} textAnchor="middle" stoke="555B6E" fill="#89B0AE"> {node.value} </text>
   </g>
 );
 
