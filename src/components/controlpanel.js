@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./controlpanel.css";
 
-const ControlPanel = ({selected}) => (
+const ControlPanel = ({selected,addEvent,resetEvent}) => (
   <div className="controls-container">
     <div className="selected-node">
     <h3>Selected Node</h3>
@@ -12,15 +12,15 @@ const ControlPanel = ({selected}) => (
         </svg>
     </div>
     <div className="option-container">
-      <button class="button add">+</button>
-      <button class="button">Reset</button>
+      <button className="button add" onClick={addEvent}>+</button>
+      <button className="button" onClick={resetEvent}>Reset</button>
       <p>Goal node:</p>
-      <input type="text" value="0"/>
+      <input type="text" defaultValue="0"/>
       <select name="algorithms">
         <option value="">Depth-First</option>
         <option value="">Breadth-First</option>
       </select>
-      <button class="button">Find Goal!</button>
+      <button className="button">Find Goal!</button>
     </div>
   </div>
 );

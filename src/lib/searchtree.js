@@ -21,10 +21,6 @@ class Node{
       item.print();
     });
   }
-
-  test(){
-    return "This works!"
-  }
 }
 
 class SearchTree{

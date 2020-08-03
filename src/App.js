@@ -8,28 +8,39 @@ import './App.css';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-        selected: null,
-    };
-    
-    this.tree = new SearchTree(0);
-    let noder = this.tree.insert(this.tree.root,5);
-    this.tree.insert(noder,47);
-    this.tree.insert(noder,96);
-    this.tree.insert(this.tree.insert(this.tree.root,8),7);
 
+    var startTree = new SearchTree(0);
+
+    this.state = {
+        tree: startTree,
+        selected: startTree.root,
+    };
+    this.treeSize = 0;
+  }
+
+  reset = () => {
+    var startTree = new SearchTree(0);
+    this.setState({tree: startTree,
+    selected: startTree.root});
+    this.treeSize = 0;
   }
 
   selectNode = (node) => {
     this.setState({selected: node});
-    console.log("SELECTED NODE " + JSON.stringify(this.state.selected))
+  }
+
+  insertNode = () => {
+    this.treeSize++;
+    this.state.tree.insert(this.state.selected,this.treeSize);
+    //This function changes data from deep withn the tree so an update must be forced
+    this.forceUpdate();
   }
 
   render(){
     return (
       <div className="main-container">
-         <RenderTree data={this.tree} height={this.tree.maxDepth(this.tree.root)} onClick={this.selectNode}/>
-         <ControlPanel selected={this.state.selected} />
+         <RenderTree data={this.state.tree} height={this.state.tree.maxDepth(this.state.tree.root)} onClick={this.selectNode}/>
+         <ControlPanel selected={this.state.selected} addEvent={this.insertNode} resetEvent={this.reset}/>
       </div>
     );
   }
