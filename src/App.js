@@ -16,9 +16,9 @@ class App extends React.Component {
         selected: startTree.root,
         algorithm: "0",
         goal: "0",
+        traverse: []
     };
     this.treeSize = 0;
-    this.traverse = [1,5];
   }
 
   reset = () => {
@@ -41,13 +41,24 @@ class App extends React.Component {
   }
 
   findGoal = () => {
+    let path = [];
     switch(this.state.algorithm){
-      case 0: //Depth-First
+      case "0": //Depth-First
+      path = this.state.tree.traverseDepth(this.state.goal);
         break;
-      case 1: //Breadth-First
+      case "1": //Breadth-First
+      path = this.state.tree.traverseBreadth(this.state.goal);
         break;
       default:
     }
+
+    for(var i = 0; i < path.length; i++){
+      let newTraverse = this.state.traverse;
+      newTraverse.push(path[i]);
+      this.setState({traverse: newTraverse});
+    }
+
+    console.log(path);
   }
 
   handleAlgo = (event) => {
@@ -61,7 +72,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="main-container">
-         <RenderTree data={this.state.tree} height={this.state.tree.maxDepth(this.state.tree.root)} onClick={this.selectNode} traverse={this.traverse}/>
+         <RenderTree data={this.state.tree} height={this.state.tree.maxDepth(this.state.tree.root)} onClick={this.selectNode} traverse={this.state.traverse}/>
          <ControlPanel selected={this.state.selected} size ={this.treeSize} addEvent={this.insertNode} resetEvent={this.reset} goalEvent={this.findGoal} handleAlgo={this.handleAlgo} handleGoal={this.handleGoal}/>
      </div>
     );

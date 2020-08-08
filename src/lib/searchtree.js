@@ -64,6 +64,44 @@ class SearchTree{
     return levels;
   }
 
+  traverseDepth(goal){
+    let path = [];
+    let order = [this.root];
+
+    while(order.length){
+      let node = order.shift()
+
+      path.push(node.value);
+
+      if(node.value == goal){
+        return path;
+      } else{
+        order.unshift(...node.children);
+      }
+    }
+
+    return path;
+  }
+
+  traverseBreadth(goal){
+    let path = [];
+    let order = [this.root];
+
+    while(order.length){
+      let node = order.shift()
+
+      path.push(node.value);
+
+      if(node.value == goal){
+        return path;
+      } else{
+        order.push(...node.children);
+      }
+    }
+
+    return path;
+  }
+
   print(){
     this.root.print();
   }
