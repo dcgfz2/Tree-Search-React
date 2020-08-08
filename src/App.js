@@ -14,7 +14,8 @@ class App extends React.Component {
     this.state = {
         tree: startTree,
         selected: startTree.root,
-        algorithm: "Depth-First",
+        algorithm: "0",
+        goal: "0",
     };
     this.treeSize = 0;
     this.traverse = [1,5];
@@ -23,7 +24,8 @@ class App extends React.Component {
   reset = () => {
     let startTree = new SearchTree(0);
     this.setState({tree: startTree,
-    selected: startTree.root});
+    selected: startTree.root,
+    goal: "0"});
     this.treeSize = 0;
   }
 
@@ -39,18 +41,28 @@ class App extends React.Component {
   }
 
   findGoal = () => {
-    console.log(this.state.algorithm);
+    switch(this.state.algorithm){
+      case 0: //Depth-First
+        break;
+      case 1: //Breadth-First
+        break;
+      default:
+    }
   }
 
   handleAlgo = (event) => {
     this.setState({algorithm: event.target.value});
   }
 
+  handleGoal = (event) => {
+    this.setState({goal: event.target.value});
+  }
+
   render(){
     return (
       <div className="main-container">
          <RenderTree data={this.state.tree} height={this.state.tree.maxDepth(this.state.tree.root)} onClick={this.selectNode} traverse={this.traverse}/>
-         <ControlPanel selected={this.state.selected} addEvent={this.insertNode} resetEvent={this.reset} goalEvent={this.findGoal} handleAlgo={this.handleAlgo}/>
+         <ControlPanel selected={this.state.selected} size ={this.treeSize} addEvent={this.insertNode} resetEvent={this.reset} goalEvent={this.findGoal} handleAlgo={this.handleAlgo} handleGoal={this.handleGoal}/>
      </div>
     );
   }
