@@ -9,17 +9,19 @@ class App extends React.Component {
   constructor(props){
     super(props);
 
-    var startTree = new SearchTree(0);
+    let startTree = new SearchTree(0);
 
     this.state = {
         tree: startTree,
         selected: startTree.root,
+        algorithm: "Depth-First",
     };
     this.treeSize = 0;
+    this.traverse = [1,5];
   }
 
   reset = () => {
-    var startTree = new SearchTree(0);
+    let startTree = new SearchTree(0);
     this.setState({tree: startTree,
     selected: startTree.root});
     this.treeSize = 0;
@@ -36,12 +38,20 @@ class App extends React.Component {
     this.forceUpdate();
   }
 
+  findGoal = () => {
+    console.log(this.state.algorithm);
+  }
+
+  handleAlgo = (event) => {
+    this.setState({algorithm: event.target.value});
+  }
+
   render(){
     return (
       <div className="main-container">
-         <RenderTree data={this.state.tree} height={this.state.tree.maxDepth(this.state.tree.root)} onClick={this.selectNode}/>
-         <ControlPanel selected={this.state.selected} addEvent={this.insertNode} resetEvent={this.reset}/>
-      </div>
+         <RenderTree data={this.state.tree} height={this.state.tree.maxDepth(this.state.tree.root)} onClick={this.selectNode} traverse={this.traverse}/>
+         <ControlPanel selected={this.state.selected} addEvent={this.insertNode} resetEvent={this.reset} goalEvent={this.findGoal} handleAlgo={this.handleAlgo}/>
+     </div>
     );
   }
 }

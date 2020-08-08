@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./controlpanel.css";
 
-const ControlPanel = ({selected,addEvent,resetEvent}) => (
+const ControlPanel = ({selected,addEvent,resetEvent,goalEvent,handleAlgo}) => (
   <div className="controls-container">
     <div className="selected-node">
     <h3>Selected Node</h3>
@@ -16,11 +16,11 @@ const ControlPanel = ({selected,addEvent,resetEvent}) => (
       <button className="button" onClick={resetEvent}>Reset</button>
       <p>Goal node:</p>
       <input type="text" defaultValue="0"/>
-      <select name="algorithms">
-        <option value="">Depth-First</option>
-        <option value="">Breadth-First</option>
+      <select name="algorithms" onChange={handleAlgo}>
+        <option value="Depth-First">Depth-First</option>
+        <option value="Breadth-First">Breadth-First</option>
       </select>
-      <button className="button">Find Goal!</button>
+      <button className="button" onClick={goalEvent}>Find Goal!</button>
     </div>
   </div>
 );
