@@ -12,7 +12,7 @@ Unimplemented/Planned features:
 Weighted trees
 Algorithms for weighted trees (A*,Greedy,...)
 ```
-
+[For more on tree/graph traversal methods click here!](https://en.wikipedia.org/wiki/Graph_traversal)
 
 ## Running
 ```
@@ -21,3 +21,5 @@ Algorithms for weighted trees (A*,Greedy,...)
 3) run page by using [npm start] in directory
 ```
 
+## License
+This web-app is distributed under the [MIT License](./LICENSE).
