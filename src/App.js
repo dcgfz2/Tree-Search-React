@@ -52,14 +52,20 @@ class App extends React.Component {
       default:
     }
 
-    for(var i = 0; i < path.length; i++){
-      let newTraverse = this.state.traverse;
-      newTraverse.push(path[i]);
-      this.setState({traverse: newTraverse});
-    }
+    //Set up animations on delay
 
-    console.log(path);
+    path.forEach((value,index) => {
+      setTimeout(() => {
+        this.setState({traverse: path.slice(0,index+1)})
+      },1500*index);
+    });
+
+    setTimeout(() => {
+      this.setState({traverse: []})
+    },1500*path.length+2);
+
   }
+
 
   handleAlgo = (event) => {
     this.setState({algorithm: event.target.value});

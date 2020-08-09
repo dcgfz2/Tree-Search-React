@@ -24,7 +24,7 @@ const RenderTree = ({data,height,onClick, traverse}) => (
         data.nodeLevelView(0, [],data.root).map((nodes,level) =>
           nodes.map((node,offset) => {
             if(traverse.includes(node.value)){
-              return <RenderNode x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} node={node} e={onClick} fillColor="000000"/>
+              return <RenderNode x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} node={node} e={onClick} fillColor="#FFD6BA"/>
             }
             else{
               return <RenderNode x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} node={node} e={onClick} fillColor="#FAF9F9"/>

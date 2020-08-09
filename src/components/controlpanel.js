@@ -8,7 +8,7 @@ const ControlPanel = ({selected,size,addEvent,resetEvent,goalEvent,handleAlgo,ha
     <h3>Selected Node</h3>
       <svg>
         <circle cx="0" cy="0" r="15" stroke="#555B6E" fill="#FAF9F9"/>
-        <text x="0" y="0" textAnchor="middle" stoke="555B6E" fill="#FFD6BA"> {selected?.value} </text>
+        <text x="0" y="0" textAnchor="middle" stoke="555B6E" fill="#89B0AE"> {selected?.value} </text>
         </svg>
     </div>
     <div className="option-container">
