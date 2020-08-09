@@ -17,7 +17,7 @@ const ControlPanel = ({selected,size,addEvent,resetEvent,goalEvent,handleAlgo,ha
       <p>Goal node</p>
       <select name="goalNode" onChange={handleGoal}>
         {[...Array(size+1).keys()].map((options,index)=>{
-          return<option value={options}>{options}</option>
+          return<option key={index} value={options}>{options}</option>
         })}
       </select>
       <select name="algorithms" onChange={handleAlgo}>
