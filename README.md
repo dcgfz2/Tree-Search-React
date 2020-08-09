@@ -1,6 +1,8 @@
 # Tree-Search-React
 A web-app with interactive search trees intended to educate on the algorithms used to traverse trees.
 
+[Live Demo](https://tree-search-react.web.app/)
+
 Currently supports the following algorithms:
 ```
 Depth-first search
