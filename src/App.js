@@ -2,6 +2,7 @@ import React from 'react';
 import SearchTree from './lib/searchtree';
 import RenderTree from './components/rendertree';
 import ControlPanel from './components/controlpanel';
+import Instructions from './components/instructions';
 
 import './App.css';
 
@@ -80,6 +81,7 @@ class App extends React.Component {
       <div className="main-container">
          <RenderTree data={this.state.tree} height={this.state.tree.maxDepth(this.state.tree.root)} onClick={this.selectNode} traverse={this.state.traverse}/>
          <ControlPanel selected={this.state.selected} size ={this.treeSize} addEvent={this.insertNode} resetEvent={this.reset} goalEvent={this.findGoal} handleAlgo={this.handleAlgo} handleGoal={this.handleGoal}/>
+         <Instructions />
      </div>
     );
   }

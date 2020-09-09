@@ -1,0 +1,9 @@
+.instructions-container{
+    width: 28%;
+    max-height: calc(100% - 250px);
+    float: right;
+    background-color: #89B0AE;
+    margin-top: 5px;
+    overflow: auto;
+    text-align: center;
+}
