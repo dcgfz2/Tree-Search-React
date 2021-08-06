@@ -3,7 +3,7 @@ svg{
   width: 100%;
   padding: 20px;
   overflow:visible;
-  background-color: #FAF9F9;
+  background-color: #F1F1F1;
 }
 
 .tree-container{
@@ -12,4 +12,5 @@ svg{
   display: flex;
   float: left;
   line-height: 0;
+  border: 1px solid #d4d4d4;
 }
