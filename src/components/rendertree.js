@@ -27,10 +27,10 @@ const RenderTree = ({data,height,onClick, traverse}) => (
         data.nodeLevelView(0, [],data.root).map((nodes,level) =>
           nodes.map((node,offset) => {
             if(traverse.includes(node.value)){
-              return <RenderNode key={level+"/"+offset} x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} node={node} e={onClick} fillColor="#FFD6BA"/>
+              return <RenderNode key={level+"/"+offset} x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} node={node} e={onClick} fillColor="#04AA6D"/>
             }
             else{
-              return <RenderNode key={level+"/"+offset} x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} node={node} e={onClick} fillColor="#FAF9F9"/>
+              return <RenderNode key={level+"/"+offset} x={((1+offset)*(100/(nodes.length+1)))+'%'} y={((1+level)*(100/height))+'%'} node={node} e={onClick} fillColor="#555555"/>
             }
           })
         )
@@ -41,13 +41,13 @@ const RenderTree = ({data,height,onClick, traverse}) => (
 
 const RenderNode = ({x,y,node,e,fillColor}) => (
   <g>
-    <circle id={node.value} cx={x} cy={y} r="15" stroke="#555B6E" fill={fillColor} onClick={function(){e(node)}}/>
-    <text x={x} y={y} textAnchor="middle" stoke="555B6E" fill="#89B0AE"> {node.value} </text>
+    <circle id={node.value} cx={x} cy={y} r="15" stroke="#555555" fill={fillColor} onClick={function(){e(node)}}/>
+    <text x={x} y={y} textAnchor="middle" stoke="#555555" fill="#FFFFFF"> {node.value} </text>
   </g>
 );
 
 const RenderRelation = ({parx,pary,x,y}) => (
-  <line x1={parx} y1={pary} x2={x} y2={y} stroke="#555B6E" />
+  <line x1={parx} y1={pary} x2={x} y2={y} stroke="#555555" />
 );
 
 export default RenderTree;

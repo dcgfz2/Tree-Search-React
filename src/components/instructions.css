@@ -1,8 +1,10 @@
 .instructions-container{
+    font: 100% Verdana;
     width: 28%;
     max-height: calc(100% - 250px);
     float: right;
-    background-color: #89B0AE;
+    border: 1px solid #d4d4d4;
+    background-color: #f1f1f1;
     margin-top: 5px;
     overflow: auto;
     text-align: center;

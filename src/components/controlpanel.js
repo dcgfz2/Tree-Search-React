@@ -7,14 +7,14 @@ const ControlPanel = ({selected,size,addEvent,resetEvent,goalEvent,handleAlgo,ha
     <div className="selected-node">
     <h3>Selected Node</h3>
       <svg>
-        <circle cx="0" cy="0" r="15" stroke="#555B6E" fill="#FAF9F9"/>
-        <text x="0" y="0" textAnchor="middle" stoke="555B6E" fill="#89B0AE"> {selected?.value} </text>
+        <circle cx="0" cy="0" r="15" stroke="#555555" fill="#555555"/>
+        <text x="0" y="0" textAnchor="middle" stoke="#555555" fill="#FFFFFF"> {selected?.value} </text>
         </svg>
     </div>
     <div className="option-container">
       <button className="button add" onClick={addEvent}>+</button>
       <button className="button" onClick={resetEvent}>Reset</button>
-      <p>Goal node</p>
+      <h3>Goal node</h3>
       <select name="goalNode" onChange={handleGoal}>
         {[...Array(size+1).keys()].map((options,index)=>{
           return<option key={index} value={options}>{options}</option>
